@@ -101,6 +101,9 @@ The application will be available at `http://localhost:8080`
 | DELETE | `/habits/{id}` | Delete a habit |
 
 ## application.properties
+
+From: https://hackernoon.com/using-postgres-effectively-in-spring-boot-applications
+
 The Postgres JDBC driver uses the URL, username, and password for connecting to your new Postgres database. The dialect is PostgreSQLDialect so Hibernate knows which SQL dialect to use when generating and executing SQL queries. The ddl-auto property sets the behavior of Hibernate’s schema generation tool and has five possible values:
 
 
