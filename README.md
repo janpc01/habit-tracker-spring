@@ -19,10 +19,10 @@ A Spring Boot application that provides RESTful API endpoints for user and habit
 
 The application is configured to connect to a PostgreSQL database with the following default settings:
 
-Database name: habitdb
-Username: admin
-Password: habit
-Port: 5432
+- Database name: habitdb
+- Username: admin
+- Password: habit
+- Port: 5432
 
 ## Getting Started
 
@@ -93,4 +93,20 @@ curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d 
 Curl Request:
 ```bash
 curl http://localhost:8080/users/1
+```
+
+## Database Schema
+The Postgres JDBC driver uses the URL, username, and password for connecting to your new Postgres database. The dialect is PostgreSQLDialect so Hibernate knows which SQL dialect to use when generating and executing SQL queries. The ddl-auto property sets the behavior of Hibernate’s schema generation tool and has five possible values:
+
+
+- create – On application start-up, drop all tables managed by Hibernate, then create them from scratch.
+- create-drop – On application start-up, create all tables managed by Hibernate. On shutdown, drop all of them.
+- update – On application start-up, update the existing tables to match the schema Hibernate expects if necessary.
+- validate – On application start-up, check that the existing tables match the schema Hibernate expects, and throw an exception if they do not match.
+- none – Do not perform any automatic schema management.
+
+
+The correct value for spring.jpa.hibernate.ddl-auto depends on your specific use case. You can use create-drop, which cleans up after itself when the Spring Boot application shuts down:
+```bash
+spring.jpa.hibernate.ddl-auto=create-drop
 ```
