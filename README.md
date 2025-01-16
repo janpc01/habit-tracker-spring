@@ -13,7 +13,6 @@ A Spring Boot application that provides RESTful API endpoints for user and habit
 - Spring Boot 3.4.1
 - Spring Data JPA
 - PostgreSQL
-- Lombok
 - JUnit 5
 
 ## Database Configuration
