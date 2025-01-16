@@ -37,6 +37,10 @@ Port: 5432
     ```bash
     brew services start postgresql
     ```
+    - Start psql
+    ```bash
+    psql postgres
+    ```
     - Create user
     ```bash
     CREATE USER admin WITH PASSWORD 'habit';
@@ -48,6 +52,10 @@ Port: 5432
     - Grant all privileges on the database to the user
     ```bash
     GRANT ALL PRIVILEGES ON DATABASE habitdb TO admin;
+    ```
+    - Exit psql
+    ```bash
+    \q
     ```
     - Connect to the database
     ```bash
