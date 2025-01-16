@@ -79,23 +79,28 @@ The application will be available at `http://localhost:8080`
 | DELETE | `/users/{id}` | Delete a user |
 | GET | `/users/exists/{id}` | Check if user exists |
 
-### Request/Response Examples
+### Dashboard Management
 
-#### Create User
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/dashboards/user/{userId}` | Get all dashboards for a user |
+| GET | `/dashboards/{id}` | Get dashboard by ID |
+| POST | `/dashboards/user/{userId}` | Create a new dashboard for a user |
+| PUT | `/dashboards/{id}` | Update an existing dashboard |
+| DELETE | `/dashboards/{id}` | Delete a dashboard |
 
-Curl Request:
-```bash
-curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d '{"email": "user@example.com", "password": "password"}'
-```
+### Habit Management
 
-#### Get User by ID
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/habits/user/{userId}` | Get all habits for a user |
+| GET | `/habits/dashboard/{dashboardId}` | Get all habits in a dashboard |
+| GET | `/habits/{id}` | Get habit by ID |
+| POST | `/habits/user/{userId}/dashboard/{dashboardId}` | Create a new habit |
+| PUT | `/habits/{id}` | Update an existing habit |
+| DELETE | `/habits/{id}` | Delete a habit |
 
-Curl Request:
-```bash
-curl http://localhost:8080/users/1
-```
-
-## Database Schema
+## application.properties
 The Postgres JDBC driver uses the URL, username, and password for connecting to your new Postgres database. The dialect is PostgreSQLDialect so Hibernate knows which SQL dialect to use when generating and executing SQL queries. The ddl-auto property sets the behavior of Hibernate’s schema generation tool and has five possible values:
 
 
