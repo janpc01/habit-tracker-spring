@@ -79,6 +79,13 @@ The application will be available at `http://localhost:8080`
 | DELETE | `/users/{id}` | Delete a user |
 | GET | `/users/exists/{id}` | Check if user exists |
 
+### Authentication
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/auth/register` | Register a new user |
+| POST | `/auth/login` | Login with email and password |
+
 ### Dashboard Management
 
 | Method | Endpoint | Description |
