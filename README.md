@@ -55,7 +55,7 @@ Port: 5432
     ```
 3. Run the application:
 ```bash
-./gradle bootRun
+./gradlew bootRun
 ```
 The application will be available at `http://localhost:8080`
 
