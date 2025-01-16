@@ -100,6 +100,35 @@ The application will be available at `http://localhost:8080`
 | PUT | `/habits/{id}` | Update an existing habit |
 | DELETE | `/habits/{id}` | Delete a habit |
 
+### Habit Completion Management
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/habit-completions/habit/{habitId}` | Mark a habit as complete/incomplete for a specific date |
+| GET | `/habit-completions/habit/{habitId}` | Get all completions for a habit |
+| PUT | `/habit-completions/habit/{habitId}` | Update completion status for a habit on a specific date |
+
+
+## Database Schema
+
+The application uses four main entities:
+
+1. User
+   - Properties: id, email, password
+   - Relationships: One-to-Many with Dashboard
+
+2. Dashboard
+   - Properties: id, name
+   - Relationships: Many-to-One with User, One-to-Many with Habit
+
+3. Habit
+   - Properties: id, name, description
+   - Relationships: Many-to-One with User and Dashboard, One-to-Many with HabitCompletion
+
+4. HabitCompletion
+   - Properties: id, date, completed, notes
+   - Relationships: Many-to-One with Habit
+
 ## application.properties
 
 From: https://hackernoon.com/using-postgres-effectively-in-spring-boot-applications
