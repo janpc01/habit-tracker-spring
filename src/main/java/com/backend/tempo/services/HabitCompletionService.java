@@ -21,7 +21,19 @@ public class HabitCompletionService {
     private HabitRepository habitRepository;
 
     public HabitCompletion createCompletion(Integer habitId, LocalDate date, boolean completed, String notes) {
-        log.info("Creating completion for habit: {} on date: {}", habitId, date);
+        log.info("Creating/Updating completion for habit: {} on date: {}", habitId, date);
+        
+        // First check if completion exists for this date
+        HabitCompletion existingCompletion = habitCompletionRepository.findByHabitIdAndDate(habitId, date);
+        
+        if (existingCompletion != null) {
+            // Update existing completion
+            existingCompletion.setCompleted(completed);
+            existingCompletion.setNotes(notes);
+            return habitCompletionRepository.save(existingCompletion);
+        }
+        
+        // Create new completion if none exists
         Habit habit = habitRepository.findById(habitId).orElse(null);
         if (habit != null) {
             HabitCompletion completion = new HabitCompletion();

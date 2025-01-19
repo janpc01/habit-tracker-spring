@@ -1,18 +1,15 @@
 package com.backend.tempo.database;
 
 import lombok.Data;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Data
 @Entity
 @Table(name = "dashboards")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Dashboard {
 
     @Id
@@ -22,7 +19,8 @@ public class Dashboard {
     @NotBlank(message = "Name is required")
     private String name;
     
-    @ManyToOne
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }
