@@ -32,6 +32,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+	implementation 'com.auth0:java-jwt:4.4.0'
+	testImplementation 'io.github.cdimascio:java-dotenv:5.2.2'
 }
 
 tasks.named('test') {
